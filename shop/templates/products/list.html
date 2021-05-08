@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Ноутбуки{% endblock %}
+
+
+{% block content %}
+
+    {% if latest_products_list %}
+
+    {%for product in latest_products_list %}
+
+    <a href = "#">{{product.product_title}}</a>
+    <img src = "{{product.product_image.url}}">
+
+    {% endfor %}
+
+
+    {% else %}
+        Статьи не найдены :(
+    {% endif %}
+
+
+{% endblock %}
