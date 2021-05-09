@@ -24,7 +24,7 @@ from django.conf import settings
 
 urlpatterns = [
     # Uncomment the next line to enable the admin:
-    path('products/', include('products.urls')),
+    path('', include('products.urls')),
     path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('admin/', admin.site.urls),
     

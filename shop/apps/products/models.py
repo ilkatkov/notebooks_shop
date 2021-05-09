@@ -27,21 +27,22 @@ class Processor(models.Model):
         verbose_name_plural = "Процессоры"
 
 class Videocard(models.Model):
-    videocard_title = models.CharField("Название видеокарты", max_length = 200)
-    videocard_description = models.TextField("Описание видеокарты")
+    videocard_title = models.CharField("Название видеоадаптера", max_length = 200)
+    videocard_description = models.TextField("Описание видеоадаптера")
     
     def __str__(self):
         return self.videocard_title
 
     class Meta():
-        verbose_name = "Видеокарта"
-        verbose_name_plural = "Видеокарты"
+        verbose_name = "Видеоадаптер"
+        verbose_name_plural = "Видеоадаптеры"
 
 class Product(models.Model):
     product_title = models.CharField("Название товара", max_length = 200)
     product_image = models.ImageField("Изображение товара", upload_to='')
     category = models.ForeignKey(Category, on_delete = models.CASCADE)
     processor = models.ForeignKey(Processor, on_delete = models.CASCADE)
+    videocard = models.ForeignKey(Videocard, on_delete = models.CASCADE)
     product_ram = models.FloatField("Постоянная память")
     product_rom = models.FloatField("Оперативная память")
     product_description = models.TextField("Описание товара")

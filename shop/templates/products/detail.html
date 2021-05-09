@@ -6,26 +6,22 @@
 
 {% block content %}
 
-    {% if latest_products_list %}
-
-    {%for product in latest_products_list %}
 
     <div class="post">
         <h3>{{product.product_title}}</h3>
         <h5>{{product.category}}</h5>
         <img class="product_img" src="{{product.product_image.url}}" alt='Ноутбук'>
-        <p name = "description_mini">{{product.product_description}}</p>
+        <p>{{product.product_description}}</p>
+        <ul>
+            <li>Процессор: {{product.processor}}</li>
+            <li>Видеоадаптер: {{product.videocard}}</li>
+            <li>Постоянная память: {{product.product_ram}} ГБ</li>
+            <li>Оперативная память: {{product.product_rom}} ГБ</li>
+        </ul>
         <p>Цена: <b>{{product.product_price}}</b> руб.</p>
-        <a href = "{% url 'products:detail' product.id %}"><button>Подробнее</button></a>
     </div>
-
-    {% endfor %}
-
-    {% else %}
-        Статьи не найдены :(
-    {% endif %}
-
     <div class="footer_div">
+        <a href ="/"><button>Назад</button></a>
         <p>Катков Илья, 2021</p>
     </div>
 </div>
